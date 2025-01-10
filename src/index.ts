@@ -163,6 +163,7 @@ streamer.client.on('messageCreate', async (message) => {
 
     const user_cmd = args.shift()!.toLowerCase();
     const [guildId, channelId] = [config.guildId, config.videoChannelId!];
+    const channelLink = config.channelLink;
 
     if (config.cmdChannelId.includes(message.channel.id)) {
         switch (user_cmd) {
@@ -288,6 +289,57 @@ streamer.client.on('messageCreate', async (message) => {
                             {
                                 sendPlaying(message, "URL");
                                 playVideo(link, streamLinkUdpConn, "URL");
+                            }
+                    }
+                }
+                break;
+            case 'playtv':
+                {
+                    if (streamStatus.joined) {
+                        sendError(message, 'Already joined');
+                        return;
+                    }
+
+                    if (!channelLink) {
+                        await sendError(message, 'Please provide a link.');
+                        return;
+                    }
+
+                    // Join voice channel
+                    await streamer.joinVoice(guildId, channelId, streamOpts);
+
+                    // Create stream
+                    const streamLinkUdpConn = await streamer.createStream(streamOpts);
+
+                    streamStatus.joined = true;
+                    streamStatus.playing = true;
+                    streamStatus.channelInfo = {
+                        guildId: guildId,
+                        channelId: channelId,
+                        cmdChannelId: message.channel.id
+                    }
+
+                    switch (true) {
+                        case ytdl.validateURL(channelLink):
+                            {
+                                const [videoInfo, yturl] = await Promise.all([
+                                    ytdl.getInfo(channelLink),
+                                    getVideoUrl(channelLink).catch(error => {
+                                        logger.error("Error:", error);
+                                        return null;
+                                    })
+                                ]);
+
+                                if (yturl) {
+                                    sendPlaying(message, videoInfo.videoDetails.title);
+                                    playVideo(yturl, streamLinkUdpConn, videoInfo.videoDetails.title);
+                                }
+                            }
+                            break;
+                        default:
+                            {
+                                sendPlaying(message, "URL");
+                                playVideo(channelLink, streamLinkUdpConn, "URL");
                             }
                     }
                 }
