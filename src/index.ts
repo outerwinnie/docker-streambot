@@ -338,8 +338,8 @@ streamer.client.on('messageCreate', async (message) => {
                             break;
                         default:
                             {
-                                sendPlaying(message, "URL");
-                                playVideo(channelLink, streamLinkUdpConn, "URL");
+                                sendPlaying(message, "TV");
+                                playVideo(channelLink, streamLinkUdpConn, "TV");
                             }
                     }
                 }
