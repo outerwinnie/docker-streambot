@@ -11,6 +11,10 @@ export default {
     prefix: process.env.PREFIX || '',
     guildId: process.env.GUILD_ID ? process.env.GUILD_ID : '',
     channelLink: process.env.CHANNEL_LINK ? process.env.CHANNEL_LINK : '',
+    channelLink2: process.env.CHANNEL_LINK ? process.env.CHANNEL_LINK : '',
+    channelLink3: process.env.CHANNEL_LINK ? process.env.CHANNEL_LINK : '',
+    channelLink4: process.env.CHANNEL_LINK ? process.env.CHANNEL_LINK : '',
+
     cmdChannelId: process.env.COMMAND_CHANNEL_ID ? process.env.COMMAND_CHANNEL_ID : '',
     videoChannelId: process.env.VIDEO_CHANNEL_ID ? process.env.VIDEO_CHANNEL_ID : '',
 

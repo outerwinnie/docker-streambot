@@ -135,6 +135,9 @@ streamer.client.on('messageCreate', async (message) => {
     const user_cmd = args.shift()!.toLowerCase();
     const [guildId, channelId] = [config.guildId, config.videoChannelId!];
     const channelLink = config.channelLink;
+    const channelLink2 = config.channelLink;
+    const channelLink3 = config.channelLink;
+    const channelLink4 = config.channelLink;
 
     if (config.cmdChannelId.includes(message.channel.id)) {
         switch (user_cmd) {
@@ -264,7 +267,7 @@ streamer.client.on('messageCreate', async (message) => {
                     }
                 }
                 break;
-            case 'playtv':
+            case 'play1':
                 {
                     if (streamStatus.joined) {
                         sendError(message, 'Already joined');
@@ -309,11 +312,164 @@ streamer.client.on('messageCreate', async (message) => {
                             break;
                         default:
                             {
-                                sendPlaying(message, "TV");
-                                playVideo(channelLink, streamLinkUdpConn, "TV");
+                                sendPlaying(message, "Playing Channel 1");
+                                playVideo(channelLink, streamLinkUdpConn, "Playing Channel 1");
                             }
                     }
                 }
+                break;
+            case 'play2':
+            {
+                if (streamStatus.joined) {
+                    sendError(message, 'Already joined');
+                    return;
+                }
+
+                if (!channelLink2) {
+                    await sendError(message, 'Please provide a link.');
+                    return;
+                }
+
+                // Join voice channel
+                await streamer.joinVoice(guildId, channelId, streamOpts);
+
+                // Create stream
+                const streamLinkUdpConn = await streamer.createStream(streamOpts);
+
+                streamStatus.joined = true;
+                streamStatus.playing = true;
+                streamStatus.channelInfo = {
+                    guildId: guildId,
+                    channelId: channelId,
+                    cmdChannelId: message.channel.id
+                }
+
+                switch (true) {
+                    case ytdl.validateURL(channelLink2):
+                    {
+                        const [videoInfo, yturl] = await Promise.all([
+                            ytdl.getInfo(channelLink2),
+                            getVideoUrl(channelLink2).catch(error => {
+                                logger.error("Error:", error);
+                                return null;
+                            })
+                        ]);
+
+                        if (yturl) {
+                            sendPlaying(message, videoInfo.videoDetails.title);
+                            playVideo(yturl, streamLinkUdpConn, videoInfo.videoDetails.title);
+                        }
+                    }
+                        break;
+                    default:
+                    {
+                        sendPlaying(message, "Playing Channel 2");
+                        playVideo(channelLink, streamLinkUdpConn, "Playing Channel 2");
+                    }
+                }
+            }
+                break;
+            case 'play3':
+            {
+                if (streamStatus.joined) {
+                    sendError(message, 'Already joined');
+                    return;
+                }
+
+                if (!channelLink3) {
+                    await sendError(message, 'Please provide a link.');
+                    return;
+                }
+
+                // Join voice channel
+                await streamer.joinVoice(guildId, channelId, streamOpts);
+
+                // Create stream
+                const streamLinkUdpConn = await streamer.createStream(streamOpts);
+
+                streamStatus.joined = true;
+                streamStatus.playing = true;
+                streamStatus.channelInfo = {
+                    guildId: guildId,
+                    channelId: channelId,
+                    cmdChannelId: message.channel.id
+                }
+
+                switch (true) {
+                    case ytdl.validateURL(channelLink3):
+                    {
+                        const [videoInfo, yturl] = await Promise.all([
+                            ytdl.getInfo(channelLink3),
+                            getVideoUrl(channelLink3).catch(error => {
+                                logger.error("Error:", error);
+                                return null;
+                            })
+                        ]);
+
+                        if (yturl) {
+                            sendPlaying(message, videoInfo.videoDetails.title);
+                            playVideo(yturl, streamLinkUdpConn, videoInfo.videoDetails.title);
+                        }
+                    }
+                        break;
+                    default:
+                    {
+                        sendPlaying(message, "Playing Channel 3");
+                        playVideo(channelLink, streamLinkUdpConn, "Playing Channel 3");
+                    }
+                }
+            }
+                break;
+            case 'play4':
+            {
+                if (streamStatus.joined) {
+                    sendError(message, 'Already joined');
+                    return;
+                }
+
+                if (!channelLink4) {
+                    await sendError(message, 'Please provide a link.');
+                    return;
+                }
+
+                // Join voice channel
+                await streamer.joinVoice(guildId, channelId, streamOpts);
+
+                // Create stream
+                const streamLinkUdpConn = await streamer.createStream(streamOpts);
+
+                streamStatus.joined = true;
+                streamStatus.playing = true;
+                streamStatus.channelInfo = {
+                    guildId: guildId,
+                    channelId: channelId,
+                    cmdChannelId: message.channel.id
+                }
+
+                switch (true) {
+                    case ytdl.validateURL(channelLink4):
+                    {
+                        const [videoInfo, yturl] = await Promise.all([
+                            ytdl.getInfo(channelLink4),
+                            getVideoUrl(channelLink4).catch(error => {
+                                logger.error("Error:", error);
+                                return null;
+                            })
+                        ]);
+
+                        if (yturl) {
+                            sendPlaying(message, videoInfo.videoDetails.title);
+                            playVideo(yturl, streamLinkUdpConn, videoInfo.videoDetails.title);
+                        }
+                    }
+                        break;
+                    default:
+                    {
+                        sendPlaying(message, "Playing Channel 4");
+                        playVideo(channelLink, streamLinkUdpConn, "Playing Channel 4");
+                    }
+                }
+            }
                 break;
             case 'ytplay':
                 {
