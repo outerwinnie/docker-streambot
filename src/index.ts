@@ -135,9 +135,9 @@ streamer.client.on('messageCreate', async (message) => {
     const user_cmd = args.shift()!.toLowerCase();
     const [guildId, channelId] = [config.guildId, config.videoChannelId!];
     const channelLink = config.channelLink;
-    const channelLink2 = config.channelLink;
-    const channelLink3 = config.channelLink;
-    const channelLink4 = config.channelLink;
+    const channelLink2 = config.channelLink2;
+    const channelLink3 = config.channelLink3;
+    const channelLink4 = config.channelLink4;
 
     if (config.cmdChannelId.includes(message.channel.id)) {
         switch (user_cmd) {

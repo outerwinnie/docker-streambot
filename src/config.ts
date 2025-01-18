@@ -10,7 +10,7 @@ export default {
     token: process.env.TOKEN || '',
     prefix: process.env.PREFIX || '',
     guildId: process.env.GUILD_ID ? process.env.GUILD_ID : '',
-    channelLink: process.env.CHANNEL_LINK ? process.env.CHANNEL_LINK1 : '',
+    channelLink: process.env.CHANNEL_LINK ? process.env.CHANNEL_LINK : '',
     channelLink2: process.env.CHANNEL_LINK2 ? process.env.CHANNEL_LINK2 : '',
     channelLink3: process.env.CHANNEL_LINK3 ? process.env.CHANNEL_LINK3 : '',
     channelLink4: process.env.CHANNEL_LINK4 ? process.env.CHANNEL_LINK4 : '',
