@@ -358,7 +358,7 @@ streamer.client.on('messageCreate', async (message) => {
                     default:
                     {
                         sendPlaying(message, "Playing Channel 2");
-                        playVideo(channelLink, streamLinkUdpConn, "Playing Channel 2");
+                        playVideo(channelLink2, streamLinkUdpConn, "Playing Channel 2");
                     }
                 }
             }
@@ -409,7 +409,7 @@ streamer.client.on('messageCreate', async (message) => {
                     default:
                     {
                         sendPlaying(message, "Playing Channel 3");
-                        playVideo(channelLink, streamLinkUdpConn, "Playing Channel 3");
+                        playVideo(channelLink3, streamLinkUdpConn, "Playing Channel 3");
                     }
                 }
             }
@@ -460,7 +460,7 @@ streamer.client.on('messageCreate', async (message) => {
                     default:
                     {
                         sendPlaying(message, "Playing Channel 4");
-                        playVideo(channelLink, streamLinkUdpConn, "Playing Channel 4");
+                        playVideo(channelLink4, streamLinkUdpConn, "Playing Channel 4");
                     }
                 }
             }
