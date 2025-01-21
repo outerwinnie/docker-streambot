@@ -306,7 +306,7 @@ streamer.client.on('messageCreate', async (message) => {
                             break;
                         default:
                             {
-                                sendPlaying(message, "Playing Channel 1");
+                                sendPlaying(message, "Playing SaturnaliaTV - Anime");
                                 playVideo(channelLink, streamLinkUdpConn, "Playing SaturnaliaTV - Anime");
                             }
                     }
@@ -357,7 +357,7 @@ streamer.client.on('messageCreate', async (message) => {
                         break;
                     default:
                     {
-                        sendPlaying(message, "Playing Channel 2");
+                        sendPlaying(message, "Playing SaturnaliaTV - Realities");
                         playVideo(channelLink2, streamLinkUdpConn, "Playing SaturnaliaTV - Realities");
                     }
                 }
@@ -408,7 +408,7 @@ streamer.client.on('messageCreate', async (message) => {
                         break;
                     default:
                     {
-                        sendPlaying(message, "Playing Channel 3");
+                        sendPlaying(message, "Playing SaturnaliaTV - Comedia");
                         playVideo(channelLink3, streamLinkUdpConn, "Playing SaturnaliaTV - Comedia");
                     }
                 }
@@ -459,7 +459,7 @@ streamer.client.on('messageCreate', async (message) => {
                         break;
                     default:
                     {
-                        sendPlaying(message, "Playing Channel 4");
+                        sendPlaying(message, "Playing SaturnaliaTV - Variedad");
                         playVideo(channelLink4, streamLinkUdpConn, "Playing SaturnaliaTV - Variedad");
                     }
                 }
