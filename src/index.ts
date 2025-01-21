@@ -307,7 +307,7 @@ streamer.client.on('messageCreate', async (message) => {
                         default:
                             {
                                 sendPlaying(message, "Playing Channel 1");
-                                playVideo(channelLink, streamLinkUdpConn, "Playing Channel 1");
+                                playVideo(channelLink, streamLinkUdpConn, "Playing SaturnaliaTV - Anime");
                             }
                     }
                 }
@@ -358,7 +358,7 @@ streamer.client.on('messageCreate', async (message) => {
                     default:
                     {
                         sendPlaying(message, "Playing Channel 2");
-                        playVideo(channelLink2, streamLinkUdpConn, "Playing Channel 2");
+                        playVideo(channelLink2, streamLinkUdpConn, "Playing SaturnaliaTV - Realities");
                     }
                 }
             }
@@ -409,12 +409,12 @@ streamer.client.on('messageCreate', async (message) => {
                     default:
                     {
                         sendPlaying(message, "Playing Channel 3");
-                        playVideo(channelLink3, streamLinkUdpConn, "Playing Channel 3");
+                        playVideo(channelLink3, streamLinkUdpConn, "Playing SaturnaliaTV - Comedia");
                     }
                 }
             }
                 break;
-            case 'otros':
+            case 'variedad':
             {
                 if (streamStatus.joined) {
                     sendError(message, 'Already joined');
@@ -460,7 +460,7 @@ streamer.client.on('messageCreate', async (message) => {
                     default:
                     {
                         sendPlaying(message, "Playing Channel 4");
-                        playVideo(channelLink4, streamLinkUdpConn, "Playing Channel 4");
+                        playVideo(channelLink4, streamLinkUdpConn, "Playing SaturnaliaTV - Variedad");
                     }
                 }
             }
