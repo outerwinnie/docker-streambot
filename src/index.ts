@@ -261,7 +261,7 @@ streamer.client.on('messageCreate', async (message) => {
                     }
                 }
                 break;
-            case 'play1':
+            case 'anime':
                 {
                     if (streamStatus.joined) {
                         sendError(message, 'Already joined');
@@ -312,7 +312,7 @@ streamer.client.on('messageCreate', async (message) => {
                     }
                 }
                 break;
-            case 'play2':
+            case 'kids':
             {
                 if (streamStatus.joined) {
                     sendError(message, 'Already joined');
@@ -363,7 +363,7 @@ streamer.client.on('messageCreate', async (message) => {
                 }
             }
                 break;
-            case 'play3':
+            case 'comedia':
             {
                 if (streamStatus.joined) {
                     sendError(message, 'Already joined');
@@ -414,7 +414,7 @@ streamer.client.on('messageCreate', async (message) => {
                 }
             }
                 break;
-            case 'play4':
+            case 'otros':
             {
                 if (streamStatus.joined) {
                     sendError(message, 'Already joined');
