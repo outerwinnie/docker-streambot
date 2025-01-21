@@ -312,7 +312,7 @@ streamer.client.on('messageCreate', async (message) => {
                     }
                 }
                 break;
-            case 'kids':
+            case 'shows':
             {
                 if (streamStatus.joined) {
                     sendError(message, 'Already joined');
